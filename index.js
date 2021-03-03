@@ -19,7 +19,7 @@ app.get("/api/customers", (req, res) => {
 });
 
 app.get("/api/locations", (req, res) => {
-  res.json(database);
+  res.send(database);
 });
 
 app.listen(port, () => {
