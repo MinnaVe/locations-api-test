@@ -13,6 +13,27 @@
 
   <body>
     <script src="js/scripts.js"></script>
-    <h1>Hello world!!!</h1>
+    <h1>Hello world</h1>
+    <ul></ul>
+
+    <script>
+      const modifyUI = (data) => {
+        let ul = document.querySelector("ul");
+        let locationArray = data.map(
+          (location) =>
+            `<li>${location.id} - ${location.latitude} - ${location.longitude}</li>`
+        );
+        let mj = locationArray.join("\n");
+        ul.innerHTML = mj;
+      };
+
+      const main = async () => {
+        let result = await fetch("/api/locations");
+        let data = await result.json();
+        modifyUI(data);
+      };
+
+      main();
+    </script>
   </body>
 </html>
