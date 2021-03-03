@@ -9,8 +9,17 @@ let customers = [
   { id: 2, name: "Tina" },
 ]; // HTTP GET http://localhost:8080/api/customers
 
+let database = [
+  { id: 1, latitude: 60, longitude: 70 },
+  { id: 2, latitude: 40, longitude: 80 },
+];
+
 app.get("/api/customers", (req, res) => {
   res.send(customers);
+});
+
+app.get("/api/locations", (req, res) => {
+  res.json(database);
 });
 
 app.listen(port, () => {
